@@ -9,7 +9,7 @@
 	</parent>
 	
 	<artifactId>slf4j-timber</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>SLF4J binding for Jake Wharton's Timber logging library</name>
@@ -48,7 +48,7 @@
 		<url>http://github.com/arcao/slf4j-timber/</url>
 		<connection>scm:git:git://github.com/arcao/slf4j-timber.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/arcao/slf4j-timber.git</developerConnection>
-		<tag>slf4j-timber-1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 	
  	<distributionManagement>
