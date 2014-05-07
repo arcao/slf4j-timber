@@ -6,7 +6,7 @@ import org.slf4j.spi.MarkerFactoryBinder;
 
 /**
  *
- * The binding of {@link BasicMarkerFactory} class with an actual instance of
+ * The binding of {@link org.slf4j.MarkerFactory} class with an actual instance of
  * {@link IMarkerFactory} is performed using information returned by this class.
  *
  * @author Martin Sloup <arcao@arcao.com>
@@ -38,6 +38,6 @@ public class StaticMarkerBinder implements MarkerFactoryBinder {
    */
   @Override
   public String getMarkerFactoryClassStr() {
-    return BasicMarkerFactory.class.getName();
+    return markerFactory.getClass().getName();
   }
 }

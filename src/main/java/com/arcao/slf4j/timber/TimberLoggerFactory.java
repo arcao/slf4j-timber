@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 
 /**
  * TimberLoggerFactory is an implementation of {@link ILoggerFactory} returning
- * the appropriately named {@link TimberLoggerFactory} instance.
+ * the appropriately named {@link org.slf4j.LoggerFactory} instance.
  *
  * @author Martin Sloup <arcao@arcao.com>
  */
