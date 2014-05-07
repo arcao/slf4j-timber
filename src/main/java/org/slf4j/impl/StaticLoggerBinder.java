@@ -6,12 +6,13 @@ import org.slf4j.spi.LoggerFactoryBinder;
 import com.arcao.slf4j.timber.TimberLoggerFactory;
 
 /**
- * The binding of {@link TimberLoggerFactory} class with an actual instance of
+ * The binding of {@link org.slf4j.LoggerFactory} class with an actual instance of
  * {@link ILoggerFactory} is performed using information returned by this class.
  *
  * @author Martin Sloup <arcao@arcao.com>
  */
 public class StaticLoggerBinder implements LoggerFactoryBinder {
+  public static String REQUESTED_API_VERSION = "1.7.7"; // SUPPRESS CHECKSTYLE slf4j
 
   /**
    * The unique instance of this class.

@@ -25,6 +25,9 @@
     <property name="format" value="^\s*for \(.*?([^ ]:|:[^ ])"/>
     <property name="message" value="Space needed around ':' character."/>
   </module>
+  
+  <!-- Filter to disable checkstyle for particular line -->
+  <module name="SuppressWithNearbyCommentFilter"/>
 
   <module name="TreeWalker">
     <property name="cacheFile" value="${checkstyle.cache.file}"/>
@@ -132,5 +135,7 @@
     <!--module name="FinalParameters"/-->
     <module name="TodoComment"/>
     <module name="UpperEll"/>
+    
+    <module name="FileContentsHolder"/>
   </module>
 </module>
