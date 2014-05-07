@@ -51,6 +51,13 @@
 		<tag>HEAD</tag>
 	</scm>
 	
+	<repositories>
+		<repository>
+			<id>maven-arcao-com</id>
+			<url>http://maven.arcao.com</url>
+		</repository>
+	</repositories>
+	
  	<distributionManagement>
 		<downloadUrl>http://maven.arcao.com/</downloadUrl>
 		<repository>
