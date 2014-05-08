@@ -2,12 +2,12 @@ slf4j-timber
 ============
 [![Build Status](https://travis-ci.org/arcao/slf4j-timber.svg?branch=master)](https://travis-ci.org/arcao/slf4j-timber)
 
-SLF4J binding for Jake Wharton's Timber logging library
+[SLF4J][1] binding for Jake Wharton's [Timber][2] logging library
 
 Usage
 -----
 
-Just put `slf4j-timber`, `timber` and `slf4j-api` (see note in Usage) jars to 
+Just put `slf4j-timber`, `timber` and `slf4j-api` (see note in Download) jars to 
 your project and use `slf4j` like before:
 
 ```java
@@ -22,7 +22,7 @@ public class YourClass {
 
 Don't forget to plant tree to Timber, check [Timber usage][3].
 
-Usage
+Download
 -----
 
 Download [the latest JAR][4] or grab via Maven:
@@ -40,7 +40,7 @@ compile 'com.arcao:slf4j-timber:1.+'
 ```
 
 Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
-so you don't need to take care of them in Maven and Gradle build scripts. 
+so you don't need to take care of them in Maven POM and Gradle build script. 
 
 Binding Log4j over Timber  
 --------------------------
@@ -70,6 +70,31 @@ compile 'org.slf4j:log4j-over-slf4j:1.7.7'
 compile 'com.arcao:slf4j-timber:1.+'
 ```
 
+Don't forget to exclude `log4j` transitive dependency from artifact which use `log4j`:
+
+Maven:  
+```xml
+<dependency>
+  <groupId>library</groupId>
+  <artifactId>library-using-log4j</artifactId>
+  <version>1.0</version>
+  <exclusions>
+    <!-- excluded, log4j-over-slf4j used instead -->
+    <exclusion>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </exclusion>
+  </exclusions> 
+</dependency>
+```
+or Gradle:
+```groovy
+compile('library:library-using-log4j:1.0') {
+  exclude group: 'log4j', module: 'log4j' /* excluded, log4j-over-slf4j used instead */
+}
+```
+
+
 License
 -------
 
@@ -88,8 +113,8 @@ License
     limitations under the License.
 
 
- [1]: https://github.com/JakeWharton/timber
- [2]: http://www.slf4j.org/
+ [1]: http://www.slf4j.org/
+ [2]: https://github.com/JakeWharton/timber
  [3]: https://github.com/JakeWharton/timber#usage
  [4]: http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.arcao&a=slf4j-timber&v=LATEST
  [5]: http://www.slf4j.org/download.html
