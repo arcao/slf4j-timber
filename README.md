@@ -31,7 +31,7 @@ Download [the latest JAR][4] or grab via Maven:
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 </dependency>
 ```
 or Gradle:
@@ -61,7 +61,7 @@ Maven:
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 </dependency>
 ```
 or Gradle:
