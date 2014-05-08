@@ -10,7 +10,7 @@
 	
 	<groupId>com.arcao</groupId>
 	<artifactId>slf4j-timber</artifactId>
-	<version>1.2-SNAPSHOT</version>
+	<version>1.2</version>
 	<packaging>jar</packaging>
 
 	<name>slf4j-timber</name>
