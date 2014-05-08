@@ -22,7 +22,7 @@ public class YourClass {
 
 Don't forget to plant tree to Timber, check [Timber usage][3].
 
-Usage
+Download
 -----
 
 Download [the latest JAR][4] or grab via Maven:
