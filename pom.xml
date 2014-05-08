@@ -3,16 +3,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.arcao</groupId>
-		<artifactId>parent</artifactId>
-		<version>2</version>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
 	</parent>
-	
+		
 	<artifactId>slf4j-timber</artifactId>
 	<version>1.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>SLF4J binding for Timber</name>
+	<name>slf4j-timber</name>
+	<description>SLF4J binding for Jake Wharton's Timber logging library</description>
 	<url>http://github.com/arcao/slf4j-timber/</url>
 
 	<developers>
@@ -51,21 +52,6 @@
 		<tag>HEAD</tag>
 	</scm>
 	
-	<repositories>
-		<repository>
-			<id>maven-arcao-com</id>
-			<url>http://maven.arcao.com</url>
-		</repository>
-	</repositories>
-	
- 	<distributionManagement>
-		<downloadUrl>http://maven.arcao.com/</downloadUrl>
-		<repository>
-			<id>ftp-arcao-repository</id>
-			<url>ftp://maven.arcao.com/</url>
-		</repository>
-	</distributionManagement>
-
 	<issueManagement>
 		<system>GitHub Issues</system>
 		<url>http://github.com/arcao/slf4j-timber/issues</url>
