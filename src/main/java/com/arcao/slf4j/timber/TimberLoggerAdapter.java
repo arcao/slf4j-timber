@@ -243,6 +243,7 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
         break;
 
       case INFO:
+      default:
         if (throwable != null) {
           tree.i(throwable, message);
         } else {
@@ -265,6 +266,6 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
           tree.e(message);
         }
         break;
-    }
+      }
   }
 }
