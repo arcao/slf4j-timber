@@ -1,8 +1,11 @@
 package com.arcao.slf4j.timber;
 
+import org.slf4j.helpers.FormattingTuple;
 import org.slf4j.helpers.MarkerIgnoringBase;
+import org.slf4j.helpers.MessageFormatter;
 
 import timber.log.Timber;
+import timber.log.Timber.Tree;
 
 /**
  * <p>A simple implementation that delegates all log requests to the Timber
@@ -31,8 +34,8 @@ import timber.log.Timber;
  *     </li>
  *     <li>
  *         Invoke logging methods, e.g.,<br/>
- *         <code>logger.debug("Some log message. Details: %s", "some message");</code><br/>
- *         <code>logger.debug("Some log message with varargs. Details: %s, %s, %d", "message", "another message", 1);</code>
+ *         <code>logger.debug("Some log message. Details: {}", someObject);</code><br/>
+ *         <code>logger.debug("Some log message with varargs. Details: {}, {}, {}", someObject1, someObject2, someObject3);</code>
  *     </li>
  * </ul>
  * </p>
@@ -48,6 +51,13 @@ import timber.log.Timber;
 class TimberLoggerAdapter extends MarkerIgnoringBase {
   private static final long serialVersionUID = -1227274521521287937L;
 
+  private enum LogType {
+    TRACE,
+    DEBUG,
+    INFO,
+    WARN,
+    ERROR
+  }
 
   /**
    * Package access allows only {@link AndroidLoggerFactory} to instantiate
@@ -64,27 +74,27 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
 
   @Override
   public void trace(String msg) {
-    Timber.tag(name).v(msg);
+    log(LogType.TRACE, msg, null);
   }
 
   @Override
   public void trace(String format, Object arg) {
-    Timber.tag(name).v(format, arg);
+    formatAndLog(LogType.TRACE, format, arg);
   }
 
   @Override
   public void trace(String format, Object arg1, Object arg2) {
-    Timber.tag(name).v(format, arg1, arg2);
+    formatAndLog(LogType.TRACE, format, arg1, arg2);
   }
 
   @Override
   public void trace(String format, Object... argArray) {
-    Timber.tag(name).v(format, argArray);
+    formatAndLog(LogType.TRACE, format, argArray);
   }
 
   @Override
   public void trace(String msg, Throwable t) {
-    Timber.tag(name).v(t, msg);
+    log(LogType.TRACE, msg, t);
   }
 
   @Override
@@ -94,27 +104,27 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
 
   @Override
   public void debug(String msg) {
-    Timber.tag(name).d(msg);
+    log(LogType.DEBUG, msg, null);
   }
 
   @Override
   public void debug(String format, Object arg) {
-    Timber.tag(name).d(format, arg);
+    formatAndLog(LogType.DEBUG, format, arg);
   }
 
   @Override
   public void debug(String format, Object arg1, Object arg2) {
-    Timber.tag(name).d(format, arg1, arg2);
+    formatAndLog(LogType.DEBUG, format, arg1, arg2);
   }
 
   @Override
   public void debug(String format, Object... argArray) {
-    Timber.tag(name).d(format, argArray);
+    formatAndLog(LogType.DEBUG, format, argArray);
   }
 
   @Override
   public void debug(String msg, Throwable t) {
-    Timber.tag(name).d(t, msg);
+    log(LogType.DEBUG, msg, t);
   }
 
   @Override
@@ -124,27 +134,27 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
 
   @Override
   public void info(String msg) {
-    Timber.tag(name).i(msg);
+    log(LogType.INFO, msg, null);
   }
 
   @Override
   public void info(String format, Object arg) {
-    Timber.tag(name).i(format, arg);
+    formatAndLog(LogType.INFO, format, arg);
   }
 
   @Override
   public void info(String format, Object arg1, Object arg2) {
-    Timber.tag(name).i(format, arg1, arg2);
+    formatAndLog(LogType.INFO, format, arg1, arg2);
   }
 
   @Override
   public void info(String format, Object... argArray) {
-    Timber.tag(name).i(format, argArray);
+    formatAndLog(LogType.INFO, format, argArray);
   }
 
   @Override
   public void info(String msg, Throwable t) {
-    Timber.tag(name).i(t, msg);
+    log(LogType.INFO, msg, t);
   }
 
   @Override
@@ -154,27 +164,27 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
 
   @Override
   public void warn(String msg) {
-    Timber.tag(name).w(msg);
+    log(LogType.WARN, msg, null);
   }
 
   @Override
   public void warn(String format, Object arg) {
-    Timber.tag(name).w(format, arg);
+    formatAndLog(LogType.WARN, format, arg);
   }
 
   @Override
   public void warn(String format, Object arg1, Object arg2) {
-    Timber.tag(name).w(format, arg1, arg2);
+    formatAndLog(LogType.WARN, format, arg1, arg2);
   }
 
   @Override
   public void warn(String format, Object... argArray) {
-    Timber.tag(name).w(format, argArray);
+    formatAndLog(LogType.WARN, format, argArray);
   }
 
   @Override
   public void warn(String msg, Throwable t) {
-    Timber.tag(name).w(t, msg);
+    log(LogType.WARN, msg, t);
   }
 
   @Override
@@ -184,26 +194,77 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
 
   @Override
   public void error(String msg) {
-    Timber.tag(name).e(msg);
+    log(LogType.ERROR, msg, null);
   }
 
   @Override
   public void error(String format, Object arg) {
-    Timber.tag(name).e(format, arg);
+    formatAndLog(LogType.ERROR, format, arg);
   }
 
   @Override
   public void error(String format, Object arg1, Object arg2) {
-    Timber.tag(name).e(format, arg1, arg2);
+    formatAndLog(LogType.ERROR, format, arg1, arg2);
   }
 
   @Override
   public void error(String format, Object... argArray) {
-    Timber.tag(name).e(format, argArray);
+    formatAndLog(LogType.ERROR, format, argArray);
   }
 
   @Override
   public void error(String msg, Throwable t) {
-    Timber.tag(name).e(t, msg);
+    log(LogType.ERROR, msg, t);
+  }
+
+  private void formatAndLog(LogType logType, String format, Object... argArray) {
+    FormattingTuple ft = MessageFormatter.arrayFormat(format, argArray);
+    log(logType, ft.getMessage(), ft.getThrowable());
+  }
+
+  private void log(LogType logType, String message, Throwable throwable) {
+    Tree tree = Timber.tag(name);
+
+    switch(logType) {
+      case TRACE:
+        if (throwable != null) {
+          tree.v(throwable, message);
+        } else {
+          tree.v(message);
+        }
+        break;
+
+      case DEBUG:
+        if (throwable != null) {
+          tree.d(throwable, message);
+        } else {
+          tree.d(message);
+        }
+        break;
+
+      case INFO:
+        if (throwable != null) {
+          tree.i(throwable, message);
+        } else {
+          tree.i(message);
+        }
+        break;
+
+      case WARN:
+        if (throwable != null) {
+          tree.w(throwable, message);
+        } else {
+          tree.w(message);
+        }
+        break;
+
+      case ERROR:
+        if (throwable != null) {
+          tree.e(throwable, message);
+        } else {
+          tree.e(message);
+        }
+        break;
+    }
   }
 }
