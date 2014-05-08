@@ -7,7 +7,7 @@ slf4j-timber
 Usage
 -----
 
-Just put `slf4j-timber`, `timber` and `slf4j-api` (see note in Usage) jars to 
+Just put `slf4j-timber`, `timber` and `slf4j-api` (see note in Download) jars to 
 your project and use `slf4j` like before:
 
 ```java
