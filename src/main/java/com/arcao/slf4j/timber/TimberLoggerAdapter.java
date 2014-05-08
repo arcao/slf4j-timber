@@ -31,25 +31,16 @@ import timber.log.Timber;
  *     </li>
  *     <li>
  *         Invoke logging methods, e.g.,<br/>
- *         <code>logger.debug("Some log message. Details: {}", someObject);</code><br/>
- *         <code>logger.debug("Some log message with varargs. Details: {}, {}, {}", someObject1, someObject2, someObject3);</code>
+ *         <code>logger.debug("Some log message. Details: %s", "some message");</code><br/>
+ *         <code>logger.debug("Some log message with varargs. Details: %s, %s, %d", "message", "another message", 1);</code>
  *     </li>
  * </ul>
  * </p>
  *
  * <p>Logger instances created using the LoggerFactory are named either according to the name
  * or the fully qualified class name of the class given as a parameter.
- *
- * Each logger name will be used as the log message tag on the Android platform.
- * However, tag names cannot be longer than 23 characters so if logger name exceeds this limit then
- * it will be truncated by the LoggerFactory. The following examples illustrate this.
- * <table border="1">
- * <tr><th><b>Original Name<b></th><th><b>Truncated Name</b></th></tr>
- * <tr><td>org.example.myproject.mypackage.MyClass</td><td>o*.e*.m*.m*.MyClass</td></tr>
- * <tr><td>o.e.myproject.mypackage.MyClass</td><td>o.e.m*.m*.MyClass</td></tr>
- * <tr><td>org.example.ThisNameIsWayTooLongAndWillBeTruncated</td><td>*LongAndWillBeTruncated</td></tr>
- * <tr><td>ThisNameIsWayTooLongAndWillBeTruncated</td><td>*LongAndWillBeTruncated</td></tr>
- * </table>
+ * Each logger name will be used as the tag for Timber if Timber has planted {@link timber.log.Timber.TaggedTree}.
+ * If tag contains also class package, it will be removed (same way like in {@link timber.log.Timber.DebugTree}).
  * </p>
  *
  * @author Martin Sloup <arcao@arcao.com>
