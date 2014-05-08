@@ -40,7 +40,7 @@ compile 'com.arcao:slf4j-timber:1.+'
 ```
 
 Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
-so you don't need to take care of them in Maven and Gradle build scripts. 
+so you don't need to take care of them in Maven POM and Gradle build script. 
 
 Binding Log4j over Timber  
 --------------------------
@@ -69,6 +69,31 @@ or Gradle:
 compile 'org.slf4j:log4j-over-slf4j:1.7.7'
 compile 'com.arcao:slf4j-timber:1.+'
 ```
+
+Don't forget to exclude `log4j` transitive dependency from artifact which use `log4j`:
+
+Maven:  
+```xml
+<dependency>
+  <groupId>library</groupId>
+  <artifactId>library-using-log4j</artifactId>
+  <version>1.0</version>
+  <exclusions>
+    <!-- excluded, log4j-over-slf4j used instead -->
+    <exclusion>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </exclusion>
+  </exclusions> 
+</dependency>
+```
+or Gradle:
+```groovy
+compile('library:library-using-log4j:1.0') {
+  exclude group: 'log4j', module: 'log4j' /* excluded, log4j-over-slf4j used instead */
+}
+```
+
 
 License
 -------
