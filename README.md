@@ -2,7 +2,7 @@ slf4j-timber
 ============
 [![Build Status](https://travis-ci.org/arcao/slf4j-timber.svg?branch=master)](https://travis-ci.org/arcao/slf4j-timber)
 
-SLF4J binding for Jake Wharton's Timber logging library
+[SLF4J][1] binding for Jake Wharton's [Timber][2] logging library
 
 Usage
 -----
@@ -88,8 +88,8 @@ License
     limitations under the License.
 
 
- [1]: https://github.com/JakeWharton/timber
- [2]: http://www.slf4j.org/
+ [1]: http://www.slf4j.org/
+ [2]: https://github.com/JakeWharton/timber
  [3]: https://github.com/JakeWharton/timber#usage
  [4]: http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.arcao&a=slf4j-timber&v=LATEST
  [5]: http://www.slf4j.org/download.html
