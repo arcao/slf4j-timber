@@ -39,17 +39,18 @@ or Gradle:
 compile 'com.arcao:slf4j-timber:1.+'
 ```
 
-Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
+> Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
 so you don't need to take care of them in Maven POM and Gradle build script. 
 
-Binding Log4j over Timber  
---------------------------
-SLF4J project alredy contains wrapper for Log4j. You only need to include 
-`log4j-over-slf4j` jar file to your project. This jar file is distributed 
-in [SLF4J package][5].
+Binding log4j, Jakarta Commons Logging or java.util.logging over Timber  
+-----------------------------------------------------------------------
+SLF4J project already [contains wrappers][5] for log4j, Jakarta Commons Logging 
+(JCL) and java.util.logging (JUL). You have to include `log4j-over-slf4j`, 
+`jcl-over-slf4j` or `jul-to-slf4j` jar file to your project. These jar files are
+distributed in [SLF4J package][6].
 
-For Maven and Gradle users it's only about adding new dependency in a build
-script:
+For Maven and Gradle users it is only about adding new dependency in POM / build
+script. Below follows the example for log4j, for other bindings it is similar:
 
 Maven:  
 ```xml
@@ -70,7 +71,9 @@ compile 'org.slf4j:log4j-over-slf4j:1.7.7'
 compile 'com.arcao:slf4j-timber:1.+'
 ```
 
-Don't forget to exclude `log4j` transitive dependency from artifact which use `log4j`:
+Don't forget to exclude `log4j` transitive dependency from artifact which use 
+`log4j`, otherwise you can get to trouble with the duplicate classes in Android 
+build system:
 
 Maven:  
 ```xml
@@ -94,7 +97,6 @@ compile('library:library-using-log4j:1.0') {
 }
 ```
 
-
 License
 -------
 
@@ -117,4 +119,5 @@ License
  [2]: https://github.com/JakeWharton/timber
  [3]: https://github.com/JakeWharton/timber#usage
  [4]: http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.arcao&a=slf4j-timber&v=LATEST
- [5]: http://www.slf4j.org/download.html
+ [5]: http://www.slf4j.org/legacy.html
+ [6]: http://www.slf4j.org/download.html
