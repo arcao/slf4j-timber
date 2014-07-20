@@ -62,7 +62,7 @@ Maven:
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>1.2</version>
+  <version>1.4</version>
 </dependency>
 ```
 or Gradle:
