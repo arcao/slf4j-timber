@@ -99,6 +99,11 @@
 			<version>${lint.version}</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>de.greenrobot</groupId>
+            <artifactId>java-common</artifactId>
+            <version>2.0.0</version>
+        </dependency>
 	</dependencies>
 
 	<build>
