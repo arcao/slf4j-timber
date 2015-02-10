@@ -1,6 +1,6 @@
 slf4j-timber
 ============
-[![Build Status](https://travis-ci.org/arcao/slf4j-timber.svg?branch=master)](https://travis-ci.org/arcao/slf4j-timber)
+[![Build Status](https://travis-ci.org/arcao/slf4j-timber.svg?branch=master)](https://travis-ci.org/arcao/slf4j-timber) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.arcao/slf4j-timber/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.arcao/slf4j-timber) [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-slf4j--timber-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/272)
 
 [SLF4J][1] binding for Jake Wharton's [Timber][2] logging library
 
