@@ -37,7 +37,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.6</java.version>
 		<slf4j.version>1.7.12</slf4j.version>
-		<timber.version>2.7.1</timber.version>
+		<timber.version>3.0.1</timber.version>
 		<android.version>4.1.1.4</android.version>
 		<android.platform>16</android.platform>
 		<junit.version>4.10</junit.version>

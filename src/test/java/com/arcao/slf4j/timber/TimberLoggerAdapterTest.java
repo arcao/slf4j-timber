@@ -16,7 +16,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import timber.log.Timber;
-import timber.log.TimberTestHelper;
 import android.util.Log;
 
 @RunWith(RobolectricTestRunner.class)
@@ -25,7 +24,7 @@ public class TimberLoggerAdapterTest {
   private static final Logger logger = LoggerFactory.getLogger(TimberLoggerAdapterTest.class);
 
   @Before @After public void setUpAndTearDown() {
-    TimberTestHelper.cleanTimber();
+    Timber.uprootAll();
   }
 
   @Test public void debugTest() {
