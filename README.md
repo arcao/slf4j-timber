@@ -42,6 +42,17 @@ compile 'com.arcao:slf4j-timber:2.0'
 > Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
 so you don't need to take care of them in Maven POM and Gradle build script. 
 
+Transitive dependencies by version
+-----
+
+slf4j-timber | Timber | SLF4J
+------------ | ------ | -----
+2.0          | 3.0.1  | 1.7.12
+1.6          | 2.7.1  | 1.7.12
+1.5          | 2.5.1  | 1.7.7
+1.4          | 2.4.1  | 1.7.7
+1.3          | 2.2.2  | 1.7.7
+
 Binding log4j, Jakarta Commons Logging or java.util.logging over Timber  
 -----------------------------------------------------------------------
 SLF4J project already [contains wrappers][5] for log4j, Jakarta Commons Logging 
