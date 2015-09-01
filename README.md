@@ -31,12 +31,12 @@ Download [the latest JAR][4] or grab via Maven:
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>2.0</version>
+  <version>2.1</version>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'com.arcao:slf4j-timber:2.0'
+compile 'com.arcao:slf4j-timber:2.1'
 ```
 
 > Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
@@ -47,6 +47,7 @@ Transitive dependencies by version
 
 slf4j-timber | Timber | SLF4J
 ------------ | ------ | -----
+2.1          | 3.1.0  | 1.7.12
 2.0          | 3.0.1  | 1.7.12
 1.6          | 2.7.1  | 1.7.12
 1.5          | 2.5.1  | 1.7.7
@@ -73,13 +74,13 @@ Maven:
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>2.0</version>
+  <version>2.1</version>
 </dependency>
 ```
 or Gradle:
 ```groovy
 compile 'org.slf4j:log4j-over-slf4j:1.7.12'
-compile 'com.arcao:slf4j-timber:2.0'
+compile 'com.arcao:slf4j-timber:2.1'
 ```
 
 Don't forget to exclude `log4j` transitive dependency from artifact which use 
