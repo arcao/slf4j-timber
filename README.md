@@ -1,6 +1,6 @@
 slf4j-timber
 ============
-[![Build Status](https://travis-ci.org/arcao/slf4j-timber.svg?branch=master)](https://travis-ci.org/arcao/slf4j-timber)
+[![Build Status](https://travis-ci.org/arcao/slf4j-timber.svg?branch=master)](https://travis-ci.org/arcao/slf4j-timber) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.arcao/slf4j-timber/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.arcao/slf4j-timber) [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-slf4j--timber-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/272)
 
 [SLF4J][1] binding for Jake Wharton's [Timber][2] logging library
 
@@ -31,16 +31,28 @@ Download [the latest JAR][4] or grab via Maven:
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>1.5</version>
+  <version>2.1</version>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'com.arcao:slf4j-timber:1.+'
+compile 'com.arcao:slf4j-timber:2.1'
 ```
 
 > Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
 so you don't need to take care of them in Maven POM and Gradle build script. 
+
+Transitive dependencies by version
+-----
+
+slf4j-timber | Timber | SLF4J
+------------ | ------ | -----
+2.1          | 3.1.0  | 1.7.12
+2.0          | 3.0.1  | 1.7.12
+1.6          | 2.7.1  | 1.7.12
+1.5          | 2.5.1  | 1.7.7
+1.4          | 2.4.1  | 1.7.7
+1.3          | 2.2.2  | 1.7.7
 
 Binding log4j, Jakarta Commons Logging or java.util.logging over Timber  
 -----------------------------------------------------------------------
@@ -57,18 +69,18 @@ Maven:
 <dependency>
   <groupId>org.slf4j</groupId>
   <artifactId>log4j-over-slf4j</artifactId>
-  <version>1.7.7</version>
+  <version>1.7.12</version>
 </dependency>
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>1.5</version>
+  <version>2.1</version>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'org.slf4j:log4j-over-slf4j:1.7.7'
-compile 'com.arcao:slf4j-timber:1.+'
+compile 'org.slf4j:log4j-over-slf4j:1.7.12'
+compile 'com.arcao:slf4j-timber:2.1'
 ```
 
 Don't forget to exclude `log4j` transitive dependency from artifact which use 
