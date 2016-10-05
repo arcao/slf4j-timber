@@ -222,8 +222,11 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
     log(logType, ft.getMessage(), ft.getThrowable());
   }
 
-  private void log(LogType logType, String message, Throwable throwable) {
+  private void log(LogType logType, String msg, Throwable throwable) {
     Tree tree = Timber.tag(name);
+
+    final String functionName = getFunctionName();
+    final String message = (functionName == null ? msg : (functionName + " - " + msg));
 
     switch(logType) {
       case TRACE:
@@ -267,5 +270,33 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
         }
         break;
       }
+  }
+
+  private String getFunctionName() {
+    final StackTraceElement[] sts = Thread.currentThread().getStackTrace();
+
+    if (sts == null) {
+      return null;
+    }
+
+    for (final StackTraceElement st : sts) {
+      if (st.isNativeMethod()) {
+        continue;
+      }
+
+      if (st.getClassName().equals(Thread.class.getName())) {
+        continue;
+      }
+
+      if (st.getClassName().equals(this.getClass().getName())) {
+        continue;
+      }
+
+      return "[" + st.getFileName()
+          + ":" + st.getLineNumber() + "]"
+          + "[" + st.getMethodName() + "]";
+    }
+
+    return null;
   }
 }
