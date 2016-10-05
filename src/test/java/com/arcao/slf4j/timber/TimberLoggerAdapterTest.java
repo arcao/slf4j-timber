@@ -29,6 +29,7 @@ public class TimberLoggerAdapterTest {
 
   @Test public void debugTest() {
     Timber.plant(new Timber.DebugTree());
+    // Timber.plant(new HollowFileTree("slf4j-test"));
 
     logger.debug("Hello, world!");
 
