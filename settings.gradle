@@ -1,0 +1,3 @@
+include ':slf4j-timber'
+
+rootProject.name = 'slf4j-timber-root'

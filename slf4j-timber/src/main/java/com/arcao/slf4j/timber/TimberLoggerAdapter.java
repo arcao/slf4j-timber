@@ -225,7 +225,7 @@ class TimberLoggerAdapter extends MarkerIgnoringBase {
   private void log(LogType logType, String message, Throwable throwable) {
     Tree tree = Timber.tag(name);
 
-    switch(logType) {
+    switch (logType) {
       case TRACE:
         if (throwable != null) {
           tree.v(throwable, message);

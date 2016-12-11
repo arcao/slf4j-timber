@@ -1,30 +1,25 @@
-# Java class files
-*.class
-
-# generated files
-target/
-
-# Local configuration file (sdk path, etc)
-local.properties
-release.properties
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.next
-
-# Eclipse project files
 .classpath
 .project
-.settings/
+.settings
+eclipsebin
 
-# InteliJ Idea
-.idea/
-.gradle
-/*/local.properties
-/*/out
-/*/*/build
-/*/*/production
+bin
+gen
+build
+out
+lib
+
+.idea
 *.iml
-*.iws
-*.ipr
-*~
-*.swp
+classes
+
+obj
+
+.DS_Store
+
+# Gradle
+.gradle
+jniLibs
+build
+local.properties
+reports
