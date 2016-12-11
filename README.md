@@ -7,8 +7,8 @@ slf4j-timber
 Usage
 -----
 
-Just put `slf4j-timber`, `timber` and `slf4j-api` (see note in Download) jars to 
-your project and use `slf4j` like before:
+Just put `slf4j-timber`, `timber` and `slf4j-api` (see note in Download) 
+artifacts to your project and use `slf4j` like before:
 
 ```java
 public class YourClass {
@@ -31,7 +31,7 @@ Download [the latest JAR][4] or grab via Maven:
 <dependency>
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
-  <version>2.1</version>
+  <version>3.0</version>
 </dependency>
 ```
 or Gradle:
@@ -47,7 +47,7 @@ Transitive dependencies by version
 
 slf4j-timber | Timber | SLF4J
 ------------ | ------ | -----
-3.0          | 3.1.0  | 1.7.21
+3.0          | 4.4.0  | 1.7.21
 2.1          | 3.1.0  | 1.7.12
 2.0          | 3.0.1  | 1.7.12
 1.6          | 2.7.1  | 1.7.12
