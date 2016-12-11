@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply plugin: 'checkstyle'
+
+task checkstyle(type: Checkstyle) {
+  configFile rootProject.file('checkstyle.xml')
+  source 'src/main/java'
+  ignoreFailures false
+  showViolations true
+  include '**/*.java'
+
+  classpath = files()
+}
+
+afterEvaluate {
+  if (project.tasks.findByName('check')) {
+    check.dependsOn('checkstyle')
+  }
+}
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion
+    consumerProguardFiles 'consumer-proguard-rules.pro'
+  }
+
+  lintOptions {
+    textReport true
+    textOutput 'stdout'
+  }
+}
+
+dependencies {
+  provided 'org.jetbrains:annotations:13.0'
+  
+  compile deps.slf4j
+  compile deps.timber
+
+  testCompile deps.festandroid
+  testCompile deps.festassert
+  testCompile deps.junit
+  testCompile deps.robolectric
+}
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
