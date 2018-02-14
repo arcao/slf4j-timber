@@ -33,15 +33,15 @@ android {
 }
 
 dependencies {
-  provided 'org.jetbrains:annotations:13.0'
+  compileOnly 'org.jetbrains:annotations:13.0'
   
-  compile deps.slf4j
-  compile deps.timber
+  implementation deps.slf4j
+  implementation deps.timber
 
-  testCompile deps.festandroid
-  testCompile deps.festassert
-  testCompile deps.junit
-  testCompile deps.robolectric
+  testImplementation deps.festandroid
+  testImplementation deps.festassert
+  testImplementation deps.junit
+  testImplementation deps.robolectric
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

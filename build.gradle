@@ -1,9 +1,10 @@
 buildscript {
   repositories {
     jcenter()
+    google()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.3'
+    classpath 'com.android.tools.build:gradle:3.0.1'
   }
 }
 
@@ -11,14 +12,15 @@ allprojects {
   repositories {
     mavenCentral()
     jcenter()
+    google()
   }
 }
 
 ext {
   minSdkVersion = 9
-  targetSdkVersion = 24
-  compileSdkVersion = 24
-  buildToolsVersion = '24.0.0'
+  targetSdkVersion = 27
+  compileSdkVersion = 27
+  buildToolsVersion = '26.0.2'
   sourceCompatibilityVersion = JavaVersion.VERSION_1_7
   targetCompatibilityVersion = JavaVersion.VERSION_1_7
 }
