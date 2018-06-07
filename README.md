@@ -32,11 +32,12 @@ Download [the latest JAR][4] or grab via Maven:
   <groupId>com.arcao</groupId>
   <artifactId>slf4j-timber</artifactId>
   <version>3.0</version>
+  <type>aar</type>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'com.arcao:slf4j-timber:3.0'
+implementation 'com.arcao:slf4j-timber:3.0@aar'
 ```
 
 > Note: `timber` and `slf4j-api` are the transitive dependencies of `slf4j-timber`, 
@@ -131,6 +132,6 @@ License
  [1]: http://www.slf4j.org/
  [2]: https://github.com/JakeWharton/timber
  [3]: https://github.com/JakeWharton/timber#usage
- [4]: http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.arcao&a=slf4j-timber&v=LATEST
+ [4]: https://repository.sonatype.org/#nexus-search;gav~com.arcao~slf4j-timber~~~
  [5]: http://www.slf4j.org/legacy.html
  [6]: http://www.slf4j.org/download.html
