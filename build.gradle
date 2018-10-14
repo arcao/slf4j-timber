@@ -1,14 +1,16 @@
 buildscript {
   repositories {
+    google()
     jcenter()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.3'
+    classpath 'com.android.tools.build:gradle:3.2.1'
   }
 }
 
 allprojects {
   repositories {
+    google()
     mavenCentral()
     jcenter()
   }
@@ -16,22 +18,22 @@ allprojects {
 
 ext {
   minSdkVersion = 9
-  targetSdkVersion = 24
-  compileSdkVersion = 24
-  buildToolsVersion = '24.0.0'
+  targetSdkVersion = 28
+  compileSdkVersion = 28
   sourceCompatibilityVersion = JavaVersion.VERSION_1_7
   targetCompatibilityVersion = JavaVersion.VERSION_1_7
 }
 
 ext.deps = [
     // Compile dependencies
-    slf4j      : 'org.slf4j:slf4j-api:1.7.21',
-    timber     : 'com.jakewharton.timber:timber:4.4.0',
+    slf4j      : 'org.slf4j:slf4j-api:1.7.25',
+    timber     : 'com.jakewharton.timber:timber:4.7.1',
 
-    // Test dependencies
-    junit      : 'junit:junit:4.11',
+    // Test dependencies      testImplementation 'org.junit.vintage:junit-vintage-engine:5.3.1'
+
+    junit      : 'org.junit.vintage:junit-vintage-engine:5.3.1',
     festassert : 'org.easytesting:fest-assert-core:2.0M10',
-    festandroid: 'com.squareup:fest-android:1.0.7',
-    mockitocore: 'org.mockito:mockito-core:1.9.5',
-    robolectric: 'org.robolectric:robolectric:3.0',
+    festandroid: 'com.squareup:fest-android:1.0.8',
+    mockitocore: 'org.mockito:mockito-core:2.23.0',
+    robolectric: 'org.robolectric:robolectric:3.8',
 ]
