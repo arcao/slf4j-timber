@@ -56,7 +56,7 @@ Version 1.3 *(2014-05-10)*
 Version 1.2 *(2014-05-08)*
 ----------------------------
 
- * Switched to SLF4J MessageFormatter for formating log messages
+ * Switched to SLF4J MessageFormatter for formatting log messages
 
 
 Version 1.1 *(2014-05-08)*
