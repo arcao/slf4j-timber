@@ -25,7 +25,7 @@ Don't forget to plant tree to Timber, check [Timber usage][3].
 Download
 -----
 
-Download [the latest JAR][4] or grab via Maven:
+Download [the latest AAR][4] or grab it via Maven:
 
 ```xml
 <dependency>
